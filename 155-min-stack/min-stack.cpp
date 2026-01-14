@@ -13,18 +13,20 @@ public:
           min.push(val);
         else
         {
-            int minVal = min.top();
-            if (val < minVal)
-              minVal = val;
-            min.push(minVal);
+          int minVal = min.top();
+          if (val <= minVal)
+            min.push(val);
         }
     }
     
     void pop() {
         if (st.empty())
           return;
+
+        if (st.top() == min.top())
+          min.pop();
+          
         st.pop();
-        min.pop();
     }
     
     int top() {
