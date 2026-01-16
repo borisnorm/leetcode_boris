@@ -29,7 +29,7 @@ public:
            res.push_back({new_start, new_end});
 
            //  [new] [old]
-           while (i < n &&  new_start < intervals[i][0])
+           while (i < n &&  new_end < intervals[i][0])
            //while (i < n)
            {
               res.push_back(intervals[i]);
