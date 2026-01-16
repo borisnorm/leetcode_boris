@@ -11,7 +11,6 @@ public:
           return 0;
         
         int minPrice = INT_MAX;
-        int profit = 0;
         int maxProfit = 0;
 
         for (int i = 0; i < n; i++)
@@ -19,10 +18,7 @@ public:
            minPrice = min(prices[i], minPrice);
 
            if (prices[i] > minPrice)
-           {
-             profit = prices[i] - minPrice;
-             maxProfit = max(maxProfit, profit);
-           }
+             maxProfit = max(maxProfit, (prices[i] - minPrice));
         }
 
         return maxProfit;
