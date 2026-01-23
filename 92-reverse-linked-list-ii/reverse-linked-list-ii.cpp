@@ -18,10 +18,10 @@ public:
         ListNode* dummy_head = &dummy;
         dummy_head->next = head;
 
-        ListNode* cur = dummy_head;
-        ListNode* pre = nullptr;
+        ListNode* pre = dummy_head;
+        ListNode* cur = head;
         // i = 0; left = 2
-        for (int i = 0; i < left && cur; i++)
+        for (int i = 1; i < left && cur; i++)
         {
           pre = cur;
           cur = cur->next;
