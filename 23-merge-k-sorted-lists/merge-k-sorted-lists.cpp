@@ -11,6 +11,57 @@
 class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
+          if (lists.empty())
+            return nullptr;
+          
+          int n = lists.size();
+          int interval = 1;
+          while (interval < n)
+          {
+            for (int i = 0; i + interval < n; i += interval*2)
+            {
+                lists[i]= mergeTwoList(lists[i], lists[i+interval]);
+            }
+
+            interval *= 2;
+          }
+
+          return lists[0];
+    }
+
+    ListNode* mergeTwoList(ListNode* l1, ListNode* l2)
+    {
+        if (!l1 && !l2)
+          return nullptr;
+        
+        ListNode dummy;
+        ListNode* cur = &dummy;
+
+        while (l1 && l2)
+        {
+           if (l1->val < l2->val)
+           {
+              cur->next = l1;
+              l1 = l1->next;
+           }
+           else
+           {
+              cur->next = l2;
+              l2 = l2->next;
+           }
+
+           cur = cur->next;
+        }
+
+        cur->next = l1 ? l1 : l2;
+
+        return dummy.next;
+    }
+};
+ /*
+class Solution {
+public:
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
         if (lists.empty())
           return nullptr;
 
@@ -47,3 +98,4 @@ public:
         return dummy.next;
     }
 };
+*/
