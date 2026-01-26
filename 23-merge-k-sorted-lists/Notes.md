@@ -1,1 +1,1 @@
-<h2>merge-k-sorted-lists Notes</h2><hr>[ Time taken: 9 m 0 s ]
+<h2>merge-k-sorted-lists Notes</h2><hr>[ Time taken: 8 m 20 s ]
