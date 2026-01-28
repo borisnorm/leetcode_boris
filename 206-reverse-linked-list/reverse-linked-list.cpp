@@ -13,6 +13,24 @@ public:
     ListNode* reverseList(ListNode* head) {
         if (!head || !head->next)
           return head;
+        
+        ListNode* newHead = reverseList(head->next);
+
+        ListNode* nxt = head->next;
+        nxt->next = head;
+
+        head->next = nullptr;
+    
+        return newHead;
+    
+    }
+};
+/*
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        if (!head || !head->next)
+          return head;
 
         ListNode dummy(0);
         ListNode* dummy_head = &dummy;
@@ -33,8 +51,13 @@ public:
 
         return dummy.next;
     }
+};
+
+*/
 
 /*
+class Solution {
+public:
     ListNode* reverseList(ListNode* head) {
         if (!head || !head->next)
           return head;
@@ -54,6 +77,5 @@ public:
 
         return pre;
     }
-
-    */
 };
+ */
